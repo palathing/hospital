@@ -3,17 +3,43 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HostaskService } from './service/hostask.service';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { CommonModule } from '@angular/common';
+import { HospitaladdComponent } from './hospitaladd/hospitaladd.component';
+import { HospitaleditComponent } from './hospitaledit/hospitaledit.component';
+import { HospitalviewComponent } from './hospitalview/hospitalview.component';
+import { UserappointmentComponent } from './userappointment/userappointment.component';
+import { FormsModule } from '@angular/forms';
+import { UseraddComponent } from './useradd/useradd.component';
+import { LoginComponent } from './login/login.component';
+import { ViewComponent } from './view/view.component';  // Add this import
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HospitaladdComponent,
+    HospitaleditComponent,
+    HospitalviewComponent,
+    UserappointmentComponent,
+    UseraddComponent,
+    LoginComponent,
+    ViewComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule, // Add it here
+    FormsModule
+
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    [provideHttpClient(withFetch())],
+
   ],
   bootstrap: [AppComponent]
 })

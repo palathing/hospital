@@ -1,0 +1,89 @@
+/* Form Container */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px auto;
+  }
+  
+  form h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Label Styling */
+  form label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  /* Input Styling */
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  form input[type="file"] {
+    padding: 8px;
+    background-color: #f9f9f9;
+    border: none;
+  }
+  
+  /* Image Preview Styling */
+  form img {
+    margin-top: 10px;
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+  }
+  
+  /* Submit Button Styling */
+  form button {
+    background-color: #2ecc71; /* Green background */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  form button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+  }
+  
+  form button:disabled {
+    background-color: #bdc3c7; /* Disabled button color */
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    form {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    form h2 {
+      font-size: 20px;
+    }
+  
+    form input,
+    form button {
+      font-size: 14px;
+    }
+  }
+  

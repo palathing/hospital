@@ -1,0 +1,290 @@
+/* Doctor List Section */
+.doctor-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .doctor-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Table Layout */
+  .doctor-form table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .doctor-form th,
+  .doctor-form td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .doctor-form th {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .doctor-form td {
+    background-color: #fafafa;
+  }
+  
+  .doctor-form td img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Button Styling */
+  .doctor-form td button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .doctor-form td button:hover {
+    background-color: #2980b9;
+  }
+  
+  .doctor-form td button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+  }
+  
+  .doctor-form td button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .doctor-form table {
+      font-size: 14px;
+    }
+  
+    .doctor-form th,
+    .doctor-form td {
+      padding: 10px;
+    }
+  
+    .doctor-form td img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .doctor-form table {
+      font-size: 12px;
+    }
+  
+    .doctor-form th,
+    .doctor-form td {
+      padding: 8px;
+    }
+  
+    .doctor-form td img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  
+/* Appointments Section */
+.appointments {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Header Styling */
+  .appointments h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Table Layout for Appointments */
+  .appointments table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .appointments th, 
+  .appointments td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Table Headers */
+  .appointments th {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  /* Table Data */
+  .appointments td {
+    background-color: #fafafa;
+  }
+  
+  /* Alternate Row Coloring */
+  .appointments tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+  }
+  
+  .appointments tbody tr:hover {
+    background-color: #e0f7e9; /* Highlight row on hover */
+  }
+  
+  /* Responsive Design for Mobile/Tablets */
+  @media (max-width: 768px) {
+    .appointments table {
+      font-size: 14px;
+    }
+  
+    .appointments th, 
+    .appointments td {
+      padding: 10px;
+    }
+  
+    .appointments td {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .appointments table {
+      font-size: 12px;
+    }
+  
+    .appointments th, 
+    .appointments td {
+      padding: 8px;
+    }
+  
+    .appointments td {
+      font-size: 11px;
+    }
+  }
+
+  
+/* Add Doctor Button Styling */
+div > button {
+    background-color: #3498db; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px 0;
+  }
+  
+  div > button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  /* Doctor Form Section */
+  .doctor-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .doctor-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Form Input Fields */
+  .doctor-form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .doctor-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .doctor-form input[type="file"] {
+    border: none;
+    padding: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .doctor-form button {
+    background-color: #2ecc71; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .doctor-form button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+  }
+  
+  .doctor-form button:disabled {
+    background-color: #bdc3c7; /* Disabled state color */
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .doctor-form {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    .doctor-form h2 {
+      font-size: 20px;
+    }
+  
+    .doctor-form input,
+    .doctor-form button {
+      font-size: 14px;
+    }
+  }
+  

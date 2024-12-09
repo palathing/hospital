@@ -1,0 +1,84 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="submitAppointment()">
+  <div *ngIf="userProfile">
+    <h2>{{ userProfile.name }}</h2>
+  </div>  
+  
+  <div>
+        <label for="specialization">Specialization</label>
+        <select id="specialization" formControlName="specialization" (change)="onSpecializationChange($event)">
+            <option value="">Select Specialization</option>
+            <option *ngFor="let specialization of specializations" [value]="specialization">
+              {{ specialization }}
+            </option>
+          </select>
+          
+      </div>
+  
+      <div *ngIf="doctors.length > 0">
+        <label for="doctor">Doctor</label>
+        <select id="doctor" formControlName="doctor">
+          <option value="">Select Doctor</option>
+          <option *ngFor="let doctor of doctors" [value]="doctor.id">
+            {{ doctor.name }}
+          </option>
+        </select>
+      </div>
+      
+      
+      <div>
+        <label for="appointmentDate">Appointment Date</label>
+        <input type="date" id="appointmentDate" formControlName="appointmentDate" />
+      </div>
+
+      <!-- Display message about doctor's availability on the selected date -->
+      <div *ngFor="let doctor of doctors">
+        <p>{{ doctor.name }}</p>
+        <ul *ngIf="doctor.appointment_dates.length > 0">
+          <li *ngFor="let date of doctor.appointment_dates">On off at {{ date }}</li>
+        </ul>
+        <p *ngIf="doctor.appointment_dates.length === 0">Will be available</p>
+      </div>
+
+  <!-- Message when no doctors are available for the selected specialization -->
+  <div *ngIf="doctors.length === 0 && selectedSpecialization">
+    <p>No doctors found for the selected specialization.</p>
+</div>
+  
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description"></textarea>
+      </div>
+
+      
+  
+    <button type="submit" [disabled]="appointmentForm.invalid">Book Appointment</button>
+  </form>
+  
+
+
+<!-- Table to display submitted appointments -->
+<div *ngIf="submittedAppointments.length > 0">
+    <h2>Submitted Appointments</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Specialization</th>
+          <th>Doctor</th>
+          <th>Appointment Date</th>
+          <th>Description</th>
+          <th>User</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of submittedAppointments">
+          <td>{{ appointment.specialization }}</td>
+          <td>{{ appointment.doctor }}</td>
+          <td>{{ appointment.appointmentDate }}</td>
+          <td>{{ appointment.description }}</td>
+          <td>{{ appointment.user }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<button type="submit" (click)="view()">View</button>

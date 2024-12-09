@@ -1,0 +1,101 @@
+<div class="doctor-form">
+  <h2>Doctor List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <!-- <th>Image</th> -->
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Availability Dates</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of doctors">
+        <td>{{ doctor.id }}</td>
+        <!-- <div *ngIf="doctor.profile_image"> -->
+          <!-- <td>
+            <img [src]="getImageUrl(course.courseThumb)" alt="{{course.courseTitle}} Image" class="course-image"
+            (error)="handleImageError($event)" />
+          </td> -->
+        <!-- </div> -->
+        <td>{{ doctor.name }}</td>
+        <td>{{ doctor.specialization }}</td>
+        <td>
+          <!-- Loop through availability dates for the doctor -->
+          <ul>
+            <li *ngFor="let date of doctor.availability_dates">{{ date | date: 'yyyy-MM-dd' }}</li>
+          </ul>
+        </td>
+        <td>
+          <button (click)="editDoctor(doctor.id)">Edit</button> <br>
+          <button (click)="viewDoctor(doctor.id)">View</button> <br>
+          <button (click)="deleteDoctor(doctor.id)">Delete</button> <br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="appointments">
+  <h2>Appointments</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Doctor</th>
+        <!-- <th>Image</th> -->
+        <th>Date</th>
+        <th>Description</th>
+        <th>Actions</th> <!-- Add actions column -->
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.doctor.name }}</td>
+        <!-- <td>
+          <img [src]="appointment.doctor.profile_image" alt="{{ appointment.doctor.name }}" width="50" height="50" />
+        </td> -->
+        <td>{{ appointment.appointment_date }}</td>
+        <td>{{ appointment.description }}</td>
+        <td>
+          <!-- Existing actions -->
+          <button (click)="acceptAppointment(appointment.id)" [disabled]="appointment.isAccepted">Accept</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Button to Add Doctor -->
+<div>
+  <button (click)="toggleForm()">Add Doctor</button>
+</div>
+
+<!-- Doctor Form (Visible when button is clicked) -->
+<div *ngIf="showForm" class="doctor-form">
+  <h2>Add Doctor</h2>
+  <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+    <label for="doctorName">Name</label>
+    <input id="doctorName" formControlName="name" type="text" required />
+
+    <label for="specialization">Specialization</label>
+    <input id="specialization" formControlName="specialization" type="text" required />
+
+    <label for="department">Department</label>
+    <input id="department" formControlName="department" type="text" required />
+
+
+    <label for="profileImage">Profile Image</label>
+    <input id="profileImage" type="file" (change)="onFileChange($event)" required />
+
+    <label for="availabilityDate">Availability Date</label>
+    <input id="availabilityDate" formControlName="availabilityDate" type="date" required />
+
+    <button type="submit" [disabled]="doctorForm.invalid">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<button (click)="goBack()">Back</button>
+
+
+<form [formGroup]="doctorForm">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text">
+    </div>
+  
+    <div>
+      <label for="specialization">Specialization</label>
+      <input id="specialization" formControlName="specialization" type="text">
+    </div>
+  
+  
+    <!-- New Department Dropdown -->
+    <div>
+        <label for="department">Department</label>
+        <input id="department" formControlName="department" type="text">
+      </div>
+  
+    <!-- Image Input -->
+    
+<div>
+    <label for="profile_image">Image</label>
+    <img *ngIf="doctorForm.get('profile_image')?.value" 
+         [src]="doctorForm.get('profile_image')?.value" 
+         alt="Doctor Image" width="100">
+  </div>
+    </form>
+  

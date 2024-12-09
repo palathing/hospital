@@ -1,0 +1,50 @@
+<div class="doctor-form">
+  <!-- Doctor details form -->
+  <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Doctor Name</label>
+      <input id="name" formControlName="name" placeholder="Enter doctor's name" />
+    </div>
+
+    <div>
+      <label for="specialization">Specialization</label>
+      <input id="specialization" formControlName="specialization" placeholder="Enter specialization" />
+    </div>
+
+    <div>
+      <label for="department">Department</label>
+      <input id="department" formControlName="department" type="text">
+    </div>
+
+    <div>
+      <label for="profile_image">Image</label>
+      <input id="profile_image" type="file" (change)="onImageChange($event)">
+      <img *ngIf="doctorForm.get('profile_image')?.value" 
+           [src]="doctorForm.get('profile_image')?.value" 
+           alt="Doctor Image" width="100">
+    </div>
+
+    <div>
+      <label for="availabilityDates">Add Availability Date</label>
+      <input
+        type="date"
+        [(ngModel)]="newAvailabilityDate"
+        id="availabilityDates"
+        placeholder="Select a date"
+      />
+      <button type="button" (click)="addAvailabilityDate()">Add Date</button>
+    </div>
+
+    <ul>
+      <li *ngFor="let date of availabilityDates; index as i">
+        {{ date }}
+        <button type="button" (click)="removeAvailabilityDate(i)">Remove</button>
+      </li>
+    </ul>
+
+    <div>
+      <button type="submit" [disabled]="doctorForm.invalid">Save Doctor</button>
+    </div>
+  </form>
+</div>
+

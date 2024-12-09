@@ -1,0 +1,32 @@
+<div *ngIf="loading">Loading appointments...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="!loading && !error">
+  <h2>Appointments</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.doctor.name }}</td>
+        <td>{{ appointment.appointment_date | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ appointment.description }}</td>
+        <td>
+          <button 
+            (click)="acceptAppointment(appointment.id)" 
+            [disabled]="appointment.isAccepted">
+            Accept
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
